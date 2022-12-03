@@ -1,0 +1,95 @@
+cabal-version: 2.2
+
+name:           aoc2022
+version:        0.1.0.0
+description:    Advent of Code 2022 in Haskell
+homepage:       https://github.com/g3rrit/advent-of-code-2022
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+common common-options
+  build-depends:
+      base
+  default-language: Haskell2010
+  default-extensions:
+      FlexibleContexts
+      FlexibleInstances
+      InstanceSigs
+      LambdaCase
+      MultiWayIf
+      RecordWildCards
+      TupleSections
+      OverloadedStrings
+      ScopedTypeVariables
+      GADTs
+      NumericUnderscores
+      DeriveFunctor
+      DeriveFoldable
+      BangPatterns
+  ghc-options:
+      -Wall
+      -Wincomplete-uni-patterns
+      -Wincomplete-record-updates
+      -Widentities
+      -Wredundant-constraints
+      -Wpartial-fields
+      -Wcompat
+      -Wunused-packages
+
+library
+  import: common-options
+  exposed-modules:
+      Days.Day01
+      Days.Day02
+      Days.Day03
+      Days.Day04
+      Days.Day05
+      Days.Day06
+      Days.Day07
+      Days.Day08
+      Days.Day09
+      Days.Day10
+      Days.Day11
+      Days.Day12
+      Days.Day13
+      Days.Day14
+      Days.Day15
+      Days.Day16
+      Days.Day17
+      Days.Day18
+      Days.Day19
+      Days.Day20
+      Days.Day21
+      Days.Day22
+      Days.Day23
+      Days.Day24
+      Days.Day25
+      Program.RunDay
+      Util.Parsers
+      Util.Util
+  other-modules:
+      Paths_aoc2022
+  hs-source-dirs:
+      src
+  build-depends:
+      attoparsec
+    , containers
+    , mtl
+    , text
+    , vector
+
+executable aoc2022-exe
+  import: common-options
+  main-is: Main.hs
+  other-modules:
+      Paths_aoc2022
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aoc2022
+    , containers
+    , optparse-applicative
