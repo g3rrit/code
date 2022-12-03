@@ -22,12 +22,11 @@ type Input = [[Integer]]
 
 type OutputA = Integer
 
-type OutputB = Void
+type OutputB = Integer
 
 ------------ PARSER ------------
 inputParser :: Parser Input
 inputParser = decimal `sepBy` endOfLine `sepBy` (endOfLine >> endOfLine)
-
 
 ------------ PART A ------------
 partA :: Input -> OutputA
@@ -35,4 +34,9 @@ partA i = maximum $ sum <$> i
 
 ------------ PART B ------------
 partB :: Input -> OutputB
-partB = error "Not implemented yet!"
+partB i = let (x1, x2, x3) = foldr f (0, 0, 0) $ sum <$> i in x1 + x2 + x3
+    where f a (x1, x2, x3)
+            | a > x1 = (a, x1, x2)
+            | a > x2 = (x1, a, x2)
+            | a > x3 = (x1, x2, a)
+            | otherwise = (x1, x2, x3)
