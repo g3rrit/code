@@ -1,2 +1,6 @@
 .vscode
 __pycache__
+.ccls-cache
+a.out
+*.class
+
