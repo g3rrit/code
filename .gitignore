@@ -3,4 +3,7 @@ __pycache__
 .ccls-cache
 a.out
 *.class
+.metals
+.scala-build
+.bsp
 
